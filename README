@@ -1,0 +1,19 @@
+==== SHRINKWRAP README FILE =====
+
+Shrinkwrap is a script I wrote as a companion to Flashbake -- a fabulous Python program that does 
+version control for writers (https://github.com/commandline/flashbake). Shrinkwrap is a bash script
+that gets the total word count for all top-level items in a folder and appends it to a log file --
+then runs Flashbake and pushes changes to a remote repo (by default, this can be disabled).
+
+On subsequent runs, it subtracts the old count from the new, giving you the total amount of words
+you've written in a day.
+
+
+## SETUP
+All you have to do is add a list of your Flashbake folders to the "folders" file in Shrinkwrap's
+directory, then, if you want, add a cron job (or edit your existing Flashbake one). 
+Shrinkwrap creates hidden files for your current wordcount and wordcount log at
+.wcCurrent and .wordCountLog.
+
+If you don't use a remote repo to keep your stories backed up, disable the last line of the
+do loop ("git push origin master").
